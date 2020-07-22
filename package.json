@@ -1,0 +1,24 @@
+{
+  "name": "apiarydreddjenkins",
+  "version": "1.0.0",
+  "description": "the experience how the apiary-dredd-Jenkins work together. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huijinyuan/ApiaryDreddJenkins.git"
+  },
+  "keywords": [
+    "Apiary",
+    "dredd",
+    "Jenkins"
+  ],
+  "author": "Jinou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huijinyuan/ApiaryDreddJenkins/issues"
+  },
+  "homepage": "https://github.com/huijinyuan/ApiaryDreddJenkins#readme"
+}
