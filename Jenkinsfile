@@ -1,30 +1,21 @@
-// use node 6
-node {
+// use node 12
+node('node12') {
    stage('Get source code') {
-      git url: 'https://github.com/apiaryio/dredd-example.git', branch: 'master'
+      git url: 'https://github.com/huijinyuan/ApiaryDreddJenkins', branch: 'master'
    }
    stage('Install Deps') {
       if(isUnix()) {
-         sh 'node -v'
-         sh 'npm -v'
+         sh 'node -12'
+         sh 'npm -6'
          sh 'npm install'
-         sh 'npm -g install dredd@stable'
+         sh 'npm -g install dredd@13.1.2'
       } else {
-         bat 'node -v'
-         bat 'npm -v'
+         bat 'node -12'
+         bat 'npm -6'
          bat 'npm install'
-         bat 'npm -g install dredd@stable'
+         bat 'npm -g install dredd@13.1.2'
       }
-   }
-   stage('Test OpenAPI 2') {
-      if(isUnix()) {
-         wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
-          sh 'dredd --config ./openapi2/dredd.yml --reporter junit --output openapi2.xml'
-         }
-      } else {
-         bat 'dredd --config ./openapi2/dredd.yml --reporter junit --output openapi2.xml'
-      }
-   }
+   }  
    stage('Test API Blueprint') {
       if(isUnix()) {
          wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
@@ -36,6 +27,5 @@ node {
    }
    stage('Get JUnit Results') {
       junit 'blueprint.xml'
-      junit 'openapi2.xml'
    }
 }
